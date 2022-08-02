@@ -233,8 +233,7 @@ hgt_sample_cpu(const c10::Dict<rel_t, torch::Tensor> &colptr_dict,
   for (const auto &kv : nodes_dict) {
     const auto &node_type = kv.first;
     const auto &nodes = kv.second;
-    if (!nodes.empty())
-      out_node_dict.insert(node_type, from_vector<int64_t>(nodes));
+    out_node_dict.insert(node_type, from_vector<int64_t>(nodes));
   }
 
   return make_tuple(out_node_dict, out_row_dict, out_col_dict, out_edge_dict);
